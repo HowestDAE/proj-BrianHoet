@@ -11,14 +11,27 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Hero myHero;
+            Hero myHero = new Hero(13, "Batman")
+            {
+                MyNemesis = "none",
+                Health = 100
+            };
+
+            Console.Write(myHero);
+
+            Hero SuperHero = new Hero(4, "Superman", "nemesis");
+            //myHero.Id = 4;
+            myHero.Name = "This is a really long name, longer than 20 characters so yeet";
+
+            Console.WriteLine(myHero.Id);
+            Console.WriteLine(myHero.Name);
             //string name;
             //Console.Write("Whats your name? ");
             //name = Console.ReadLine();
             //Console.Write("Hello " + name);
             //
             //
-            //Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }
