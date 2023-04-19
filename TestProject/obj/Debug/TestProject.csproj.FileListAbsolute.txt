@@ -1,0 +1,16 @@
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\bin\Debug\TestProject.exe.config
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\bin\Debug\TestProject.exe
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\bin\Debug\TestProject.pdb
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.csproj.AssemblyReference.cache
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.csproj.SuggestedBindingRedirects.cache
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\MainWindow.g.cs
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\App.g.cs
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject_MarkupCompile.cache
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject_MarkupCompile.lref
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\MainWindow.baml
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.g.resources
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.Properties.Resources.resources
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.csproj.GenerateResource.cache
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.csproj.CoreCompileInputs.cache
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.exe
+D:\ToolDevelopment\CSharp\00-BrianHoet-1\TestProject\obj\Debug\TestProject.pdb
