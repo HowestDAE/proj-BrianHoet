@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1.Model;
 
 namespace ConsoleApp1
 {
@@ -10,13 +11,14 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string name;
-            Console.Write("Whats your name? ");
-            name = Console.ReadLine();
-            Console.Write("Hello " + name);
-
-
-            Console.ReadLine();
+            Hero myHero;
+            //string name;
+            //Console.Write("Whats your name? ");
+            //name = Console.ReadLine();
+            //Console.Write("Hello " + name);
+            //
+            //
+            //Console.ReadLine();
         }
     }
 }

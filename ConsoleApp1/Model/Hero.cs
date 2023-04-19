@@ -8,5 +8,6 @@ namespace ConsoleApp1.Model
 {
     internal class Hero
     {
+        public int Id { get; set; }
     }
 }
