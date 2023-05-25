@@ -22,7 +22,7 @@
         <!--<ComboBox ItemsSource="{Binding agent}"/>-->
         <ComboBox ItemsSource="{Binding AgentRoles}" SelectedItem="{Binding SelectedRole}"/>
         <!-- listbox for (filtered?) pokemons -->
-        <ListBox Grid.Row="1" Foreground="White" Background="Transparent" ItemsSource="{Binding Agents}" SelectedItem="{Binding SelectedAgent}">
+        <ListBox Grid.Row="1" Foreground="White" Background="Black" ItemsSource="{Binding Agents}" SelectedItem="{Binding SelectedAgent}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

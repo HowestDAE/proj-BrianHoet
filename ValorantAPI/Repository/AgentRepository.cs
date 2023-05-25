@@ -48,11 +48,11 @@ namespace ValorantAPI.Repository
                         {
                             Agent newAgent = new Agent();
 
-
-                            newAgent.Id = agent.Value<string>("uuid");
                             newAgent.Name = agent.Value<string>("displayName");
+                            newAgent.Description = agent.Value<string>("description");
                             newAgent.LittleIcon = agent.Value<string>("displayIconSmall");
                             newAgent.BackGround = agent.Value<string>("background");
+                            newAgent.FullPortrait = agent.Value<string>("fullPortrait");
 
                             // Deserialize the "role" information
                             var roleData = agent.Value<JObject>("role");
@@ -60,6 +60,19 @@ namespace ValorantAPI.Repository
                             {
                                 newAgent.RoleName = roleData.Value<string>("displayName");
                                 newAgent.RoleIcon = roleData.Value<string>("displayIcon");
+                            }
+
+                            var abilitiesData = agent.Value<JArray>("abilities");
+                            if (abilitiesData != null)
+                            {
+                                newAgent.AbilitiesName = new List<string>();
+                                newAgent.AbilitiesIconName = new List<string>();
+
+                                foreach (var ability in abilitiesData)
+                                {
+                                    newAgent.AbilitiesName.Add(ability.Value<string>("displayName"));
+                                    newAgent.AbilitiesIconName.Add(ability.Value<string>("displayIcon"));
+                                }
                             }
 
                             _agents.Add(newAgent);
@@ -73,46 +86,6 @@ namespace ValorantAPI.Repository
             }
 
             return _agents;
-        }
-
-        public async Task<Agent> GetAgentAsync()
-        {
-            string url = "https://valorant-api.com/v1/agents";
-
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    var response = await client.GetAsync(url);
-
-                    if (!response.IsSuccessStatusCode)
-                        throw new HttpRequestException(response.ReasonPhrase);
-
-                    //read json string from API asynchronously (await result)
-                    string json = await response.Content.ReadAsStringAsync();
-
-                    // Deserialize JSON
-                    var data = JsonConvert.DeserializeObject<JObject>(json)["data"];
-                    if (data == null || !data.HasValues)
-                        throw new Exception("No agents found");
-
-                    // Access the first element of the "data" array
-                    var firstAgent = data[0];
-                    Agent agent = new Agent();
-                    agent.Id = firstAgent.Value<string>("uuid");
-                    agent.LittleIcon = firstAgent.Value<string>("displayIcon");
-                    //agent.Suit = firstAgent.Value<string>("suit");
-                    //agent.Value = firstAgent.Value<string>("value");
-                    return agent;
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("No agents found");
-                }
-
-            }
-
-            return new Agent();
         }
 
         public async Task<List<string>> GetAgentRolesAsync()

@@ -8,16 +8,20 @@ namespace ValorantAPI.Model
 {
     public class Agent
     {
-        public string Id { get; set; }
+        //Names
         public string Name { get; set; }
+        public string Description { get; set; }
         public string RoleName { get; set; }
-        public string RoleIcon { get; set; }
-
-        //public int Weight { get; set; }
-        //public int Height { get; set; }
-        //
+        
+        //Images
         public string LittleIcon { get; set; }
+        public string RoleIcon { get; set; }
         public string BackGround { get; set; }
+
+        public string FullPortrait { get; set; }
+
+        public List<string> AbilitiesName { get; set; }
+        public List<string> AbilitiesIconName { get; set; }
     }
 
 }

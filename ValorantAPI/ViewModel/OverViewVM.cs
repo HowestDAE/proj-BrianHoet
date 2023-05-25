@@ -19,34 +19,34 @@ namespace ValorantAPI.ViewModel
         private string _selectedRole;
 
         public string SelectedRole
-{
-    get { return _selectedRole; }
-    set
-    {
-        _selectedRole = value;
-        OnPropertyChanged(nameof(SelectedRole));
+        {
+            get { return _selectedRole; }
+            set
+            {
+                _selectedRole = value;
+                OnPropertyChanged(nameof(SelectedRole));
+        
+                // Filter the agents based on the selected role
+                FilterAgentsByRole(_selectedRole);
+            }
+        }
 
-        // Filter the agents based on the selected role
-        FilterAgentsByRole(_selectedRole);
-    }
-}
-
-private void FilterAgentsByRole(string selectedRole)
-{
-    try
-    {
-        // Filter the agents based on the selected role
-        List<Agent> filteredAgents = Agents.Where(agent => agent.RoleName == selectedRole).ToList();
-
-        // Update the Agents property with the filtered agents
-        Agents = filteredAgents;
-        OnPropertyChanged(nameof(Agents));
-    }
-    catch (Exception)
-    {
-        Console.WriteLine("Failed to filter agents by role");
-    }
-}
+        private void FilterAgentsByRole(string selectedRole)
+        {
+            try
+            {
+                // Filter the agents based on the selected role
+                List<Agent> filteredAgents = Agents.Where(agent => agent.RoleName == selectedRole).ToList();
+        
+                // Update the Agents property with the filtered agents
+                Agents = filteredAgents;
+                OnPropertyChanged(nameof(Agents));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Failed to filter agents by role"); 
+            }
+        }
 
 
         public Agent SelectedAgent
