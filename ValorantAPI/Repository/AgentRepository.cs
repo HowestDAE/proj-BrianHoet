@@ -88,6 +88,21 @@ namespace ValorantAPI.Repository
             return _agents;
         }
 
+        public async Task<List<Agent>> GetAgentsAsync(string type)
+        {
+            if (_agents == null)
+            {
+                await GetAgentsAsync();
+            }
+
+            if (type.Equals("All Roles"))
+            {
+                return await GetAgentsAsync();
+            }
+
+            return _agents.Where(pokemon => pokemon.RoleName.Equals(type)).ToList();
+        }
+
         public async Task<List<string>> GetAgentRolesAsync()
         {
             var url = "https://valorant-api.com/v1/agents";
@@ -138,7 +153,5 @@ namespace ValorantAPI.Repository
                 }
             }
         }
-
-
     }
 }

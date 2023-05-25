@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Newtonsoft.Json.Linq;
 using ValorantAPI.Model;
 using ValorantAPI.Repository;
 
@@ -23,38 +24,15 @@ namespace ValorantAPI.ViewModel
             get { return _selectedRole; }
             set
             {
-                _selectedRole = value;
-                OnPropertyChanged(nameof(SelectedRole));
-        
-                // Filter the agents based on the selected role
-                FilterAgentsByRole(_selectedRole);
+                FilterAgentsByRole(value);
             }
         }
-
-        private void FilterAgentsByRole(string selectedRole)
-        {
-            try
-            {
-                // Filter the agents based on the selected role
-                List<Agent> filteredAgents = Agents.Where(agent => agent.RoleName == selectedRole).ToList();
-        
-                // Update the Agents property with the filtered agents
-                Agents = filteredAgents;
-                OnPropertyChanged(nameof(Agents));
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Failed to filter agents by role"); 
-            }
-        }
-
 
         public Agent SelectedAgent
         {
             get { return _selectedAgent; }
             set { _selectedAgent = value; }
         }
-
 
         public OverViewVM()
         {
@@ -72,10 +50,7 @@ namespace ValorantAPI.ViewModel
 
                 OnPropertyChanged(nameof(Agents));
             });
-
             InitializeAgentRolesAsync();
-
-
         }
 
         private async Task InitializeAgentRolesAsync()
@@ -89,6 +64,22 @@ namespace ValorantAPI.ViewModel
             {
                 Console.WriteLine("Failed to initialize agent roles: " + ex.Message);
             }
+        }
+
+        private void FilterAgentsByRole(string value)
+        {
+            var taskRes = Task.Run(() =>
+            {
+                var agentList = _agentRepository.GetAgentsAsync(value);
+                return agentList;
+            });
+            taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(
+                () =>
+                {
+                    Agents = taskRes.Result;
+                    _selectedRole = value;
+                    OnPropertyChanged(nameof(Agents));
+                });
         }
     }
 }

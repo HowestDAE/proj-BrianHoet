@@ -16,6 +16,7 @@
     <Grid >
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.8*"/>
             <RowDefinition/>
             <RowDefinition/>
@@ -23,6 +24,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
@@ -31,34 +33,22 @@
 
         <!--Background image based on type-->
         <Rectangle Fill="Black" Stretch="UniformToFill" 
-               Grid.ColumnSpan="4" Grid.RowSpan="5"/>
+               Grid.ColumnSpan="6" Grid.RowSpan="6"/>
 
         <!--Name & icon of agent-->
-        <Image Source="{Binding CurrentAgent.LittleIcon}"/>
+        <Image Source="{Binding CurrentAgent.LittleIcon}" Grid.Column="1" Grid.Row="1"/>
         <TextBlock Text="{Binding CurrentAgent.Name}" FontSize="45" FontWeight="Bold" Foreground="White"
-                       VerticalAlignment="Center" Grid.Column="1" />
+                       VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"/>
         <Rectangle Height="4" VerticalAlignment="Top" HorizontalAlignment="Left"
-                       Grid.Row="1" Fill="OrangeRed" Grid.ColumnSpan="2" Width="329" />
-
-        <!--<Rectangle Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Right"
-                       Fill="#555" Width="1" Margin="0,30,0,50"/>
-        <Rectangle Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Right"
-                       Fill="Red" Width="1" Margin="0,30,0,50" Grid.Column="1"/>-->
+                       Grid.Row="2" Fill="OrangeRed" Grid.ColumnSpan="3" Width="311" Margin="18,0,0,0" />
 
         <!--(Description)-->
         <TextBlock Text="{Binding CurrentAgent.Description}" TextWrapping="Wrap"
-                   FontSize="13" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Foreground="White" Margin="0,4,0,0"/>
-
-
-        <!--(Role)-->
-        <Image Source="{Binding CurrentAgent.RoleIcon}" Grid.RowSpan="3" Grid.Column="0"
-               Stretch="Uniform" Margin="-1,42,1,44" Grid.Row="1"/>
-        <TextBlock Text="{Binding CurrentAgent.RoleName}" Grid.Column="1" Grid.Row ="2" FontSize="40"
-                   FontWeight="SemiBold" VerticalAlignment="Center" Foreground="White" Margin="20,0,0,0"/>
+                   FontSize="13" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Foreground="White" Margin="0,4,0,0"/>
 
         <!--(Fulldisplay)-->
-        <Image Source="{Binding CurrentAgent.FullPortrait}" Grid.Column="2"
-               Grid.RowSpan="5" Grid.ColumnSpan="2" Stretch="Uniform" Margin="-60, -60,-60,-20"/>
+        <Image Source="{Binding CurrentAgent.FullPortrait}" Grid.Column="3"
+               Grid.RowSpan="6" Grid.ColumnSpan="2" Stretch="Uniform" Margin="-60, -60,-60,-20"/>
 
 
         <!--<StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="20" Width="20" >
@@ -68,9 +58,11 @@
                 <TextBlock Text=" kg" FontSize="21" />-->
         <!--
         </StackPanel>-->
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+        <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3">
 
             <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.2*"/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -81,15 +73,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding CurrentAgent.AbilitiesIconName[0]}" Grid.Column="0"/>
-            <Image Source="{Binding CurrentAgent.AbilitiesIconName[1]}" Grid.Column="1"/>
-            <Image Source="{Binding CurrentAgent.AbilitiesIconName[2]}" Grid.Column="2"/>
-            <Image Source="{Binding CurrentAgent.AbilitiesIconName[3]}" Grid.Column="3"/>
+            <!--(Role)-->
+            <Image Source="{Binding CurrentAgent.RoleIcon}" Grid.Column="0" Grid.Row="0"
+                   Stretch="Uniform" />
+            <TextBlock Text="{Binding CurrentAgent.RoleName}" Grid.Column="1" Grid.Row ="0" Grid.ColumnSpan="2" FontSize="40"
+                       FontWeight="SemiBold" VerticalAlignment="Center" Foreground="White" Margin="20,0,0,0"/>
 
-            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[0]}" Grid.Column="0" Grid.Row="1" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[1]}" Grid.Column="1" Grid.Row="1" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[2]}" Grid.Column="2" Grid.Row="1" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[3]}" Grid.Column="3" Grid.Row="1" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Image Source="{Binding CurrentAgent.AbilitiesIconName[0]}" Grid.Column="0" Grid.Row="2"/>
+            <Image Source="{Binding CurrentAgent.AbilitiesIconName[1]}" Grid.Column="1" Grid.Row="2"/>
+            <Image Source="{Binding CurrentAgent.AbilitiesIconName[2]}" Grid.Column="2" Grid.Row="2"/>
+            <Image Source="{Binding CurrentAgent.AbilitiesIconName[3]}" Grid.Column="3" Grid.Row="2"/>
+
+            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[0]}" Grid.Column="0" Grid.Row="3" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[1]}" Grid.Column="1" Grid.Row="3" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[2]}" Grid.Column="2" Grid.Row="3" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentAgent.AbilitiesName[3]}" Grid.Column="3" Grid.Row="3" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         </Grid>
 
