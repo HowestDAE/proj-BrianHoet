@@ -18,10 +18,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <!-- combobox for types -->
-        <!--<ComboBox ItemsSource="{Binding agent}"/>-->
-        <ComboBox ItemsSource="{Binding AgentRoles}" SelectedItem="{Binding SelectedRole}"/>
-        <!-- listbox for (filtered?) pokemons -->
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" MinWidth="100" />
+            </Grid.ColumnDefinitions>
+
+            <!-- ComboBox for types -->
+            <ComboBox ItemsSource="{Binding AgentRoles}" SelectedItem="{Binding SelectedRole}"/>
+
+            <!-- Button in the top right corner -->
+            <Button Content="{Binding CommandText}" Background="{Binding ButtonBackground}" HorizontalAlignment="Left" Width="80" VerticalAlignment="Center" Grid.Column="1" Height="22" Command="{Binding RepositoryCommand}" />
+        </Grid>
+
         <ListBox Grid.Row="1" Foreground="White" Background="Black" ItemsSource="{Binding Agents}" SelectedItem="{Binding SelectedAgent}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -58,6 +68,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
     </Grid>
+
 </Page>

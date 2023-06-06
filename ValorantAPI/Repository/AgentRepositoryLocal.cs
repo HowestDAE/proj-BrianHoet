@@ -83,20 +83,20 @@ namespace ValorantAPI.Repository
             }
 
             List<string> types = _agents.Select(agent => agent.RoleName).Distinct().ToList();
-            types.Add("All types");
+            types.Add("All Roles");
 
             return types;
         }
 
 
-        public List<Agent> GetAgentLocal(string type)
+        public static List<Agent> GetAgentsLocal(string type)
         {
             if (_agents == null)
             {
                 GetAgentsLocal();
             }
 
-            if (type.Equals("All types"))
+            if (type.Equals("All Roles"))
             {
                 return GetAgentsLocal();
             }

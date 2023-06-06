@@ -1,0 +1,5 @@
+
+*.bak
+ValorantAPI/.vs/
+ValorantAPI/bin/
+ValorantAPI/obj/
