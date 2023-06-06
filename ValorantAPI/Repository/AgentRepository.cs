@@ -100,7 +100,7 @@ namespace ValorantAPI.Repository
                 return await GetAgentsAsync();
             }
 
-            return _agents.Where(pokemon => pokemon.RoleName.Equals(type)).ToList();
+            return _agents.Where(agent => agent.RoleName.Equals(type)).ToList();
         }
 
         public async Task<List<string>> GetAgentRolesAsync()

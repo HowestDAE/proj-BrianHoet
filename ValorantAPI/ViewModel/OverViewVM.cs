@@ -16,6 +16,7 @@ namespace ValorantAPI.ViewModel
         public List<string> AgentRoles { get; set; }
 
         AgentRepository _agentRepository;
+        AgentRepositoryLocal _agentRepositoryLocal;
         private Agent _selectedAgent;
         private string _selectedRole;
 
@@ -36,21 +37,24 @@ namespace ValorantAPI.ViewModel
 
         public OverViewVM()
         {
-            _agentRepository = new AgentRepository();
+            //_agentRepository = new AgentRepository();
+            //
+            //var taskRes = Task.Run(() =>
+            //{
+            //    var agentList = _agentRepository.GetAgentsAsync();
+            //    return agentList;
+            //});
+            //taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(
+            //() =>
+            //{
+            //    Agents = taskRes.Result;
+            //
+            //    OnPropertyChanged(nameof(Agents));
+            //});
+            //InitializeAgentRolesAsync();
 
-            var taskRes = Task.Run(() =>
-            {
-                var agentList = _agentRepository.GetAgentsAsync();
-                return agentList;
-            });
-            taskRes.ConfigureAwait(true).GetAwaiter().OnCompleted(
-            () =>
-            {
-                Agents = taskRes.Result;
-
-                OnPropertyChanged(nameof(Agents));
-            });
-            InitializeAgentRolesAsync();
+            Agents = AgentRepositoryLocal.GetAgentsLocal();
+            AgentRoles = AgentRepositoryLocal.GetAgentsTypesLocal();
         }
 
         private async Task InitializeAgentRolesAsync()

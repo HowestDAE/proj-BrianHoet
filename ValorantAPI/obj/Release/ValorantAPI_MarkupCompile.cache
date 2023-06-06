@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ToolDevelopment\CSharp\proj-BrianHoet\ValorantAPI\obj\Debug\
+D:\ToolDevelopment\CSharp\proj-BrianHoet\ValorantAPI\obj\Release\
 ValorantAPI
 none
 false
-DEBUG;TRACE
+TRACE
 D:\ToolDevelopment\CSharp\proj-BrianHoet\ValorantAPI\App.xaml
-3-280175794
+3585295901
 
-12-1372569909
-25-1829853808
+131780369064
+25-1028977484
 MainWindow.xaml;View\DetailPage.xaml;View\OverViewPage.xaml;
 
-True
+False
 
